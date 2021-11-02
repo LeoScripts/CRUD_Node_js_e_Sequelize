@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header style="display: flex; align-items: center;">
+
+    
+        <a href="/cadastro">cadastrar</a>
+        
+    </header>
+
+    <main style="margin-top: 1rem;">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                <% users.forEach( user =>{ %>
+
+                    <tr>
+                        <th><%= user.id_usuario %></th>
+                        <th><%= user.nome %></th>
+                        <th style="background-color: yellowgreen;border: 1px solid gray;border-radius: 5px; ">
+                            <a style="text-decoration: none; color: black;" href="/ver/<%= user.id_usuario %>">ver dados</a>
+                        </th>
+                        <th style="background-color: yellow;border:1px solid gray;border-radius: 5px; ">
+                            <a style="text-decoration: none; color: black;" href="/editar/<%= user.id_usuario %>">Editar</a>
+                        </th>
+                        <th>
+                            <form action="/deletar/<%= user.id_usuario%>?_method=DELETE" method="post">
+                                <button type="submit">Excluir</button>
+                            </form>
+                        </th>
+                    </tr>
+                   
+                <% }) %> 
+            </tbody>
+        </table>
+    </main>
+
+    <footer style="display: flex;gap: 10px;margin-top: 2rem;">
+        <% for (let nrPagina = 1; nrPagina <= totalPagina; nrPagina++){ %>
+            <div "><a href="?page=<%= nrPagina %>"><%= nrPagina %></a></div>
+        <% } %>
+    </footer>
+</body>
+</html>
