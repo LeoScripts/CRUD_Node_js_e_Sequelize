@@ -5,26 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     
 </head>
 <body>
     
-    <header>
-
-        
-        
-        <a href="/cadastro">cadastrar</a>
-        
+    <header class="bg-green-500 flex justify-between mb-10">
+        <h1 class=" font-black text-white ml-4 py-5">CRUD usuario</h1>
+        <a class="mr-4 py-5" href="/cadastro">cadastrar</a>
     </header>
 
-    <main style="margin-top: 1rem;">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Ações</th>
+    <main class=" max-w-xl mx-auto mb-10 flex items-center flex-col">
+        
+
+        <table class=" ">
+            <thead class="">
+                <tr class="">
+                    <th class="bg-gray-400">ID</th>
+                    <th class="bg-gray-300">Nome</th>
+                    <th class="bg-gray-200">Ações</th>
                 </tr>
             </thead>
     
@@ -32,19 +31,16 @@
                 <% users.forEach( user =>{ %>
 
                     <tr>
-                        <th><%= user.id_usuario %></th>
-                        <th><%= user.nome %></th>
-                        <th style="background-color: yellowgreen;border: 1px solid gray;border-radius: 5px; ">
-                            <a style="text-decoration: none; color: black;" href="/ver/<%= user.id_usuario %>">ver dados</a>
-                        </th>
-                        <th style="background-color: yellow;border:1px solid gray;border-radius: 5px; ">
-                            <a style="text-decoration: none; color: black;" href="/editar/<%= user.id_usuario %>">Editar</a>
-                        </th>
-                        <th>
+                        <th class="bg-gray-300 "><%= user.id_usuario %></th>
+                        <th class=" p-1 bg-gray-100"><%= user.nome %></th>
+                        <th class="flex" >
+                            <a class="bg-green-200 rounded p-1 gap-1 m-1" href="/ver/<%= user.id_usuario %>">ver</a>
+                            <a class="bg-yellow-400 rounded p-1 gap-1 m-1" href="/editar/<%= user.id_usuario %>">Editar</a>
                             <form action="/deletar/<%= user.id_usuario%>?_method=DELETE" method="post">
-                                <button type="submit">Excluir</button>
+                                <button class="bg-red-300 rounded p-1 gap-1 m-1" type="submit">Excluir</button>
                             </form>
                         </th>
+                       
                     </tr>
                    
                 <% }) %> 
@@ -52,9 +48,9 @@
         </table>
     </main>
 
-    <footer style="display: flex;gap: 10px;margin-top: 2rem;">
+    <footer class="flex gap-1 ml-4">
         <% for (let nrPagina = 1; nrPagina <= totalPagina; nrPagina++){ %>
-            <div ><a href="?page=<%= nrPagina %>"><%= nrPagina %></a></div>
+            <div ><a class="bg-green-400 px-1 py-px " href="?page=<%= nrPagina %>"><%= nrPagina %></a></div>
         <% } %>
     </footer>
 </body>

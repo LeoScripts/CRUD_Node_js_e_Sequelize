@@ -4,13 +4,6 @@ const IndexController = require('./controller/IndexController');
 
 const router = express.Router();
 
-
-//rota de teste do tailwincss
-router.get('/css',(req,res)=>{
-    res.render('css')
-});
-
-
 router.get('/', IndexController.index);
 
 router.get('/ver/:id', IndexController.findById);
