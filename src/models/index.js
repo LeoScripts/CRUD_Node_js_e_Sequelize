@@ -5,7 +5,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config');
+const config = require('../config/config'); // apos o comando npx sequelize init:models so modifiquei esta linha no require
 const db = {};
 
 let sequelize;

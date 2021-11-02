@@ -7,7 +7,7 @@ const IndexController = {
         let {page = 1} = req.query
         let {count:total, rows:users} = await Usuario.findAndCountAll({
             limit:5,
-            offset: (page - 1) * 5
+            
         });
 
         let totalPagina = Math.round(total/5.5)
