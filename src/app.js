@@ -13,6 +13,7 @@ app.use(express.json())
 app.use(urlencoded({extended:false}))
 app.set('view engine', 'ejs');
 app.set('views', path.resolve('src','views'));
+app.set(express.static(path.resolve('src','public')))
 
 app.set(logger('dev'));
 
