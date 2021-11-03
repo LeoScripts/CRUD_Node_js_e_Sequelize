@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    
     <title>Document</title>
 </head>
 <body>
-    <main>
-        <h3> Id:<%= usuario.id_usuario%> Nome: <%= usuario.nome%> </h3>
+
+    <%- include('parts/header.ejs') %>
+
+    <main class=" max-w-xl mx-auto mb-10 flex items-center flex-col">
+        <h3 class="bg-green-200 px-2 py-1 rounded-md"> <%= usuario.nome%> </h3>
         <form action="/editar/<%= usuario.id_usuario%>?_method=PUT" method="post">
             <div>
                 <label for="nome">nome</label>
-                <input type="text" id="nome" name="nome" value="<%=usuario.nome %>" >
+                <br>
+                <input class="border-2 border-green-400" type="text" id="nome" name="nome" value="<%=usuario.nome %>" >
             </div>
             <div>
                 <label for="email">email</label>
-                <input type="text" id="email" name="email" value="<%= usuario.email%>">
+                <br>
+                <input class="border-2 border-green-400" type="text" id="email" name="email" value="<%= usuario.email%>">
             </div>
             <div>
                 <label for="password">senha</label>
-                <input type="text" id="password" name="senha" value="<%= usuario.senha%>" >
+                <br>
+                <input class="border-2 border-green-400" type="text" id="password" name="senha" value="<%= usuario.senha%>" >
             </div>
-            <button type="submit">Atualizar</button>
+            <button class="bg-green-300 px-2 py-1 mt-2 rounded-full" type="submit">Atualizar</button>
         </form >
     </main> 
 </body>

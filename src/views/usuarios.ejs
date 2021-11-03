@@ -10,10 +10,7 @@
 </head>
 <body>
     
-    <header class="bg-green-500 flex justify-between mb-10">
-        <h1 class=" font-black text-white ml-4 py-5">CRUD usuario</h1>
-        <a class="mr-4 py-5" href="/cadastro">cadastrar</a>
-    </header>
+    <%- include('parts/header.ejs') %>
 
     <main class=" max-w-xl mx-auto mb-10 flex items-center flex-col">
         
@@ -31,10 +28,10 @@
                 <% users.forEach( user =>{ %>
 
                     <tr>
-                        <th class="bg-gray-300 "><%= user.id_usuario %></th>
-                        <th class=" p-1 bg-gray-100"><%= user.nome %></th>
-                        <th class="flex" >
-                            <a class="bg-green-200 rounded p-1 gap-1 m-1" href="/ver/<%= user.id_usuario %>">ver</a>
+                        <th class="bg-gray-300 border-b-2"><%= user.id_usuario %></th>
+                        <th class=" p-1 bg-gray-100 border-b-2 " ><%= user.nome %></th>
+                        <th class="flex border-b-2" >
+                            <a class="bg-green-200 rounded p-1 gap-1 m-1" href="/ver/<%= user.id_usuario %>">Ver</a>
                             <a class="bg-yellow-400 rounded p-1 gap-1 m-1" href="/editar/<%= user.id_usuario %>">Editar</a>
                             <form action="/deletar/<%= user.id_usuario%>?_method=DELETE" method="post">
                                 <button class="bg-red-300 rounded p-1 gap-1 m-1" type="submit">Excluir</button>

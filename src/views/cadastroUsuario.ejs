@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    
     <title>Document</title>
 </head>
 <body>
-    <main>
+    <%- include('parts/header.ejs') %>  
+    <main class=" max-w-xl mx-auto mb-10 flex items-center flex-col">
         <form action="/cadastro" method="post">
             <div>
                 <label for="nome">nome</label>
-                <input type="text" id="nome" name="nome" >
+                <br>
+                <input class="border-2 border-green-400" type="text" id="nome" name="nome" >
             </div>
             <div>
-                <label for="email">email</label>
-                <input type="text" id="email" name="email" >
+                <label for="email">email</label> 
+                <br>
+                <input class="border-2 border-green-400" type="text" id="email" name="email" >
             </div>
             <div>
                 <label for="password">senha</label>
-                <input type="text" id="password" name="senha" >
+                <br>
+                <input class="border-2 border-green-400" type="text" id="password" name="senha" >
             </div>
-            <button type="submit">cadastrar</button>
+            <button class="bg-green-300 px-2 py-1 mt-2 rounded-full" type="submit">cadastrar</button>
         </form >
     </main> 
 </body>
