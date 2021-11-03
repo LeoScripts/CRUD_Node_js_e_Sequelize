@@ -21,6 +21,7 @@ execute o camando abaixo
 ```
 npm start
 ```
+visualização esta em: [http:/localhost:3000](http://localhost:3000)
 
 ```diff
 - ATENÇÂO
