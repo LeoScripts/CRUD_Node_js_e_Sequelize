@@ -28,25 +28,6 @@ const IndexController = {
 
     },
 
-    async search(req,res,index){
-        let{key} = req.query;
-    
-        let users = await Usuario.findAll({
-            where:{
-                nome:{
-                    [Op.like]:`%${key}%`
-                }
-            },
-            order:[
-                ['id_usuario', 'ASC']
-            ]
-        });
-
-        
-
-        return res.render('usuarios',{users})
-        
-    },
     create(req,res){
         return res.render('cadastroUsuario')
     },
@@ -67,25 +48,6 @@ const IndexController = {
 
 
         return res.redirect('/')
-    },
-
-    //este metodo e usado pra adiocionarmos varios usuarios ao mesmo tempo
-    async bulkCreate (req,res){
-
-        //lista apenas de testes
-        //varios usuarios ao mesmo tempo
-        const listaDeUsuarios = [
-             {nome:'teste',email:'teste@email.com',senha:'123456'},
-             {nome:'teste',email:'teste@email.com',senha:'123456'},
-             {nome:'teste',email:'teste@email.com',senha:'123456'},
-             {nome:'teste',email:'teste@email.com',senha:'123456'},
-
-        ]
-    
-        const resultado = await Usuario.bulkCreate(listaDeUsuarios);
-        console.log(resultado);
-
-        res.send('criados');
     },
 
     //atualizando usuario = update--------------------------------------
